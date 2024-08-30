@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        .btn, .choice-btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .btn:hover, .choice-btn:hover {
+            background-color: #0056b3;
+        }
+        .choice-btn {
+            background-color: #28a745;
+        }
+        .choice-btn:hover {
+            background-color: #218838;
+        }
+        #response {
+            margin-top: 20px;
+            display: none;
+        }
+        #message {
+            position: relative;
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 24px;
+            color: #333333;
+            max-width: 90%;
+            margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(173, 216, 230, 0.5);
+        }
+        #message::after {
+            content: "𝒜ℳ";
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 18px;
+            color: #007BFF;
+        }
+        @media (max-width: 600px) {
+            .choice-btn {
+                width: 100%;
+                padding: 12px 0;
+                font-size: 18px;
+            }
+            #message {
+                font-size: 20px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p style="font-size: 24px; font-weight: bold;">Are You Aya??</p>
+        <button class="choice-btn" onclick="showMessage('yes')">Yes</button>
+        <button class="choice-btn" onclick="showMessage('no')">No</button>
+    </div>
+
+    <div id="response">
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function showMessage(response) {
+            let message = '';
+            if (response === 'yes') {
+                message = '♥️انتي اشطر وأجمل ست بيت ي روحي';
+            } else if (response === 'no') {
+                message = 'للأسف مفيش حد في شطارة ولا جمال آية';
+            }
+            document.getElementById('message').innerText = message;
+            document.getElementById('response').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
